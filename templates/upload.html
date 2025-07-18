@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Upload</title>
+</head>
+<body>
+    <h2>Upload Resume</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="resume" required>
+        <input type="submit" value="Upload">
+    </form>
+    {% if data %}
+        <h3>Extracted Data:</h3>
+        <p><b>Name:</b> {{ data.name }}</p>
+        <p><b>Skills:</b> {{ data.skills|join(', ') }}</p>
+        <p><b>Education:</b> {{ data.education|join(', ') }}</p>
+    {% endif %}
+</body>
+</html>
